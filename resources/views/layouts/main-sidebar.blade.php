@@ -19,14 +19,26 @@
                     {{-- @endif --}}
 
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Folders">
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#main-proccess">
                             <div class="pull-left"><i class="fa fa-folder"></i><span
                                     class="right-nav-text">Main Proccess</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-                        <ul id="Folders" class="collapse" data-parent="#sidebarnav">
+                        <ul id="main-proccess" class="collapse" data-parent="#sidebarnav">
                             <li><a href="{{route('mainProccess')}}">Manage Proccess</a></li>
+                        </ul>
+                    </li>
+                    {{-- Users  --}}
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#users">
+                            <div class="pull-left"><i class="fa fa-folder"></i><span
+                                    class="right-nav-text">Users</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="users" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{route('allUsers')}}">Manage Users</a></li>
                         </ul>
                     </li>
 
