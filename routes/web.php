@@ -32,4 +32,7 @@ Route::get('/folders/{SubProcess}', [folderController::class, 'show'])->name('fo
 
 Route::get('/files/{folder}', [fileController::class, 'show'])->name('file');
 
+//Users
+Route::get('/all-users', function () {return view('layouts.admin.allUsers');})->name('allUsers');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
