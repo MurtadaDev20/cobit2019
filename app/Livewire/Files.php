@@ -7,6 +7,9 @@ use App\Models\Folder;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
+
 
 class Files extends Component
 {
@@ -54,6 +57,36 @@ class Files extends Component
 
 
     }
+
+
+    public function deleteFile($fileId)
+    {
+        $id = $this->id;
+        $file = Attach::find($fileId);
+
+        if ($file) {
+            // Construct the path relative to 'storage/app/public'
+
+            $filePath = 'public/' . $file->file_path;
+
+            // dd($filePath);
+
+            if (Storage::exists($filePath)) {
+                // Delete the file from storage
+                Storage::delete($filePath);
+                $file->delete();
+                toastr()->success('File deleted successfully.');
+            } else {
+                toastr()->error('File not found in storage.');
+            }
+
+            return redirect()->to(route('file', ['folder' => $id]));
+        } else {
+            toastr()->error('File record not found.');
+            return redirect()->to(route('file', ['folder' => $id]));
+        }
+    }
+
 
     public function render()
     {

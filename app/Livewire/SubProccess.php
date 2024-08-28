@@ -13,7 +13,7 @@ use function Laravel\Prompts\error;
 class SubProccess extends Component
 {
     use WithPagination;
-    public $name, $desc, $proccessess , $id_after;
+    public $name, $desc, $proccessess ;
     public $id;
 
 
@@ -51,6 +51,28 @@ class SubProccess extends Component
     }
 
 
+//Delete
+
+public function SubProccessDelete($procId)
+{
+    $id = $this->id;
+    $proce = ModelsSubProccess::find($procId);
+
+    if (!$proce) {
+        toastr()->error('Sub Process not found.');
+        return redirect()->to(route('mainProccess'));
+    }
+
+    if ($proce->folders()->count() > 0) {
+        toastr()->error('Cannot delete Sub Process. It contains a Folders.');
+        return redirect()->to(route('subProccess',['process' => $id]));
+    }
+
+
+    $proce->delete();
+    toastr()->success('Sub Process deleted successfully.');
+    return redirect()->to(route('subProccess', ['process' => $id]));
+}
 
 
 
