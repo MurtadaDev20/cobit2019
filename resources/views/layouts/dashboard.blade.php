@@ -46,7 +46,7 @@
             </div>
             <!-- widgets -->
             <div class="row">
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -127,7 +127,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -147,8 +147,51 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
+                    <div class="card card-statistics h-100">
+                        <div class="card-body">
+                            <div class="clearfix">
+                                <div class="float-left">
+                                    <span class="text-danger">
+                                        <i class="fa fa-thumbs-o-up fa-shake highlight-icon" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <div class="float-right text-right">
+                                    <p class="card-text text-dark">Need approval</p>
+                                    <h4>{{App\Models\Attach::count()}}</h4>
+                                </div>
+                            </div>
+                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
+                                <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
 
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">Doughnut </h5>
+                <div class="chart-wrapper">
+                    <div id="canvas-holder" style="width: 100%; margin: 0 auto; height: 300px;">
+                        <div class="chartjs-size-monitor"
+                            style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                            <div class="chartjs-size-monitor-expand"
+                                style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink"
+                                style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                            </div>
+                        </div>
+                        <canvas id="canvas3" width="446" height="375"
+                            style="display: block; height: 300px; width: 357px;"
+                            class="chartjs-render-monitor"></canvas>
+                        <button class="button gray x-small mt-50" id="addData">Add Data</button>
+                    </div>
+                </div>
             </div>
             <!-- Orders Status widgets-->
 
@@ -172,4 +215,3 @@
 </body>
 
 </html>
-
