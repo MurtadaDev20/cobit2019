@@ -82,7 +82,7 @@
     @endforeach
 
       </div>
-
+      {{$files->links()}}
       </div>
 
 </div>
