@@ -57,11 +57,11 @@
                                 </div>
                                 <div class="float-right text-right">
                                     <p class="card-text text-dark">Users</p>
+                                    <h4>{{App\Models\User::count()}}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-exclamation-circle mr-1" aria-hidden="true"></i> 81% lower
-                                growth
+                                <a href="{{route('allUsers')}}">show users</a>
                             </p>
                         </div>
                     </div>
@@ -76,11 +76,33 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Departments</p>
+                                    <p class="card-text text-dark">Main Proccess</p>
+                                    <h4>{{App\Models\MainProccess::count()}}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
                                 <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> Total sales
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                    <div class="card card-statistics h-100">
+                        <div class="card-body">
+                            <div class="clearfix">
+                                <div class="float-left">
+                                    <span class="text-secondary ">
+                                        <i class="fa fa-tasks highlight-icon" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <div class="float-right text-right">
+                                    <p class="card-text text-dark">Sub Proccess</p>
+                                    <h4>{{App\Models\SubProccess::count()}}</h4>
+                                </div>
+                            </div>
+
+                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
+                                <i class="fa fa-calendar mr-1" aria-hidden="true"></i> Sales Per Week
                             </p>
                         </div>
                     </div>
@@ -96,6 +118,7 @@
                                 </div>
                                 <div class="float-right text-right">
                                     <p class="card-text text-dark">Folders</p>
+                                    <h4>{{App\Models\Folder::count()}}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
@@ -115,6 +138,7 @@
                                 </div>
                                 <div class="float-right text-right">
                                     <p class="card-text text-dark">Files</p>
+                                    <h4>{{App\Models\Attach::count()}}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
@@ -124,63 +148,7 @@
                     </div>
                 </div>
 
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span class="text-danger">
-                                        <i class="fa fa-area-chart highlight-icon"></i>
-                                    </span>
-                                </div>
-                                <div class="float-right text-right">
-                                    <p class="card-text text-dark">Total Space</p>
-                                </div>
-                            </div>
-                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span class="text-danger">
-                                        <i class="fa fa-code highlight-icon" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="float-right text-right">
-                                    <p class="card-text text-dark">Free space</p>
-                                </div>
-                            </div>
-                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span class="text-secondary">
-                                        <i class="fa fa-code-fork highlight-icon" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="float-right text-right">
-                                    <p class="card-text text-dark">Used Spase</p>
-                                </div>
-                            </div>
-                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
-                            </p>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <!-- Orders Status widgets-->
 
