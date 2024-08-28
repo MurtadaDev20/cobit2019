@@ -57,6 +57,28 @@ class Folders extends Component
     }
 
 
+    // Delete
+
+    public function FolderDelete($foldId)
+    {
+        $id = $this->id;
+        $folder = Folder::find($foldId);
+
+        if (!$foldId) {
+            toastr()->error('Folder not found.');
+            return redirect()->to(route('folder',['SubProcess' => $id]));
+        }
+
+        if ($folder->attach()->count() > 0) {
+            toastr()->error('Cannot delete Folder. It contains a Files.');
+            return redirect()->to(route('folder',['SubProcess' => $id]));
+        }
+
+
+        $folder->delete();
+        toastr()->success('Folder deleted successfully.');
+        return redirect()->to(route('folder', ['SubProcess' => $id]));
+    }
 
 
     ////////// view //////////

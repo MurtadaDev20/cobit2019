@@ -82,7 +82,7 @@
                                         </div>
                                         <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button wire:click="DepartmentDelete({{ $proccess->id }})" type="button"
+                                        <button wire:click="MainProccessDelete({{ $proccess->id }})" type="button"
                                             class="btn btn-danger">Delete</button>
                                         </div>
                                     </div>

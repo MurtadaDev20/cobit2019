@@ -37,6 +37,26 @@ class MainProccess extends Component
     }
 
 
+    //Delete
+
+    public function MainProccessDelete($procId)
+    {
+        $proce = ModelsMainProccess::find($procId);
+
+        if (!$proce) {
+            toastr()->error('Main Process not found.');
+            return redirect()->to(route('mainProccess'));
+        }
+
+        if ($proce->subProccess()->count() > 0) {
+            toastr()->error('Cannot delete Main Process. It contains a Sub Process.');
+            return redirect()->to(route('mainProccess'));
+        }
+
+        $proce->delete();
+        toastr()->success('Main Process deleted successfully.');
+        return redirect()->to(route('mainProccess'));
+    }
 
     // View
 
