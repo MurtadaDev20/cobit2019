@@ -60,9 +60,9 @@
                                     <h4>{{App\Models\User::count()}}</h4>
                                 </div>
                             </div>
-                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
+                            {{-- <p class="text-muted pt-3 mb-0 mt-2 border-top">
                                 <a href="{{route('allUsers')}}">show users</a>
-                            </p>
+                            </p> --}}
                         </div>
                     </div>
                 </div>
@@ -80,9 +80,9 @@
                                     <h4>{{App\Models\MainProccess::count()}}</h4>
                                 </div>
                             </div>
-                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
+                            {{-- <p class="text-muted pt-3 mb-0 mt-2 border-top">
                                 <i class="fa fa-bookmark-o mr-1" aria-hidden="true"></i> Total sales
-                            </p>
+                            </p> --}}
                         </div>
                     </div>
                 </div>
@@ -101,9 +101,9 @@
                                 </div>
                             </div>
 
-                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
+                            {{-- <p class="text-muted pt-3 mb-0 mt-2 border-top">
                                 <i class="fa fa-calendar mr-1" aria-hidden="true"></i> Sales Per Week
-                            </p>
+                            </p> --}}
                         </div>
                     </div>
                 </div>
@@ -121,9 +121,9 @@
                                     <h4>{{App\Models\Folder::count()}}</h4>
                                 </div>
                             </div>
-                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
+                            {{-- <p class="text-muted pt-3 mb-0 mt-2 border-top">
                                 <i class="fa fa-calendar mr-1" aria-hidden="true"></i> Sales Per Week
-                            </p>
+                            </p> --}}
                         </div>
                     </div>
                 </div>
@@ -141,9 +141,9 @@
                                     <h4>{{App\Models\Attach::count()}}</h4>
                                 </div>
                             </div>
-                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
+                            {{-- <p class="text-muted pt-3 mb-0 mt-2 border-top">
                                 <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
-                            </p>
+                            </p> --}}
                         </div>
                     </div>
                 </div>
@@ -161,9 +161,9 @@
                                     <h4>{{App\Models\Attach::count()}}</h4>
                                 </div>
                             </div>
-                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
+                            {{-- <p class="text-muted pt-3 mb-0 mt-2 border-top">
                                 <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
-                            </p>
+                            </p> --}}
                         </div>
                     </div>
                 </div>
