@@ -4,7 +4,7 @@ Template:  Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template
 Author: potenzaglobalsolutions.com
 Design and Developed by: potenzaglobalsolutions.com
 
-NOTE: 
+NOTE:
 
 */
 
@@ -19,7 +19,7 @@ NOTE:
 
 /*************************
   Line Chart
-*************************/ 
+*************************/
     var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
      var config = {
         type: 'line',
@@ -112,7 +112,7 @@ NOTE:
 
 /*************************
      Line Styles
-*************************/ 
+*************************/
 var config2 = {
             type: 'line',
             data: {
@@ -198,7 +198,7 @@ var config2 = {
 
 /*************************
      doughnut
-*************************/ 
+*************************/
         var config3 = {
         type: 'doughnut',
         data: {
@@ -243,11 +243,11 @@ var config2 = {
             }
         }
      };
- 
+
 
 /*************************
         combo
-*************************/ 
+*************************/
     var timeFormat = 'MM/DD/YYYY HH:mm';
     function newDateString(days) {
       return moment().add(days, 'd').format(timeFormat);
@@ -257,12 +257,12 @@ var config2 = {
       type: 'bar',
       data: {
         labels: [
-          newDateString(0), 
-          newDateString(1), 
-          newDateString(2), 
-          newDateString(3), 
-          newDateString(4), 
-          newDateString(5), 
+          newDateString(0),
+          newDateString(1),
+          newDateString(2),
+          newDateString(3),
+          newDateString(4),
+          newDateString(5),
           newDateString(6)
         ],
         datasets: [{
@@ -271,12 +271,12 @@ var config2 = {
           backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
           borderColor: window.chartColors.red,
           data: [
-            randomScalingFactor(), 
-            randomScalingFactor(), 
-            randomScalingFactor(), 
-            randomScalingFactor(), 
-            randomScalingFactor(), 
-            randomScalingFactor(), 
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
             randomScalingFactor()
           ],
         }, {
@@ -285,12 +285,12 @@ var config2 = {
           backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
           borderColor: window.chartColors.blue,
           data: [
-            randomScalingFactor(), 
-            randomScalingFactor(), 
-            randomScalingFactor(), 
-            randomScalingFactor(), 
-            randomScalingFactor(), 
-            randomScalingFactor(), 
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
             randomScalingFactor()
           ],
         }, {
@@ -300,12 +300,12 @@ var config2 = {
           borderColor: window.chartColors.green,
           fill: false,
           data: [
-            randomScalingFactor(), 
-            randomScalingFactor(), 
-            randomScalingFactor(), 
-            randomScalingFactor(), 
-            randomScalingFactor(), 
-            randomScalingFactor(), 
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
+            randomScalingFactor(),
             randomScalingFactor()
           ],
         }, ]
@@ -327,10 +327,10 @@ var config2 = {
         },
       }
     };
- 
+
  /*************************
         Custom Points
-*************************/ 
+*************************/
  var customTooltips = function (tooltip) {
       $(this._chart.canvas).css("cursor", "pointer");
       var positionY = this._chart.canvas.offsetTop;
@@ -364,12 +364,12 @@ var config2 = {
         borderColor: window.chartColors.red,
         pointBackgroundColor: window.chartColors.red,
         data: [
-          randomScalingFactor(), 
-          randomScalingFactor(), 
-          randomScalingFactor(), 
-          randomScalingFactor(), 
-          randomScalingFactor(), 
-          randomScalingFactor(), 
+          randomScalingFactor(),
+          randomScalingFactor(),
+          randomScalingFactor(),
+          randomScalingFactor(),
+          randomScalingFactor(),
+          randomScalingFactor(),
           randomScalingFactor()
         ]
       }, {
@@ -378,12 +378,12 @@ var config2 = {
         borderColor: window.chartColors.blue,
         pointBackgroundColor: window.chartColors.blue,
         data: [
-          randomScalingFactor(), 
-          randomScalingFactor(), 
-          randomScalingFactor(), 
-          randomScalingFactor(), 
-          randomScalingFactor(), 
-          randomScalingFactor(), 
+          randomScalingFactor(),
+          randomScalingFactor(),
+          randomScalingFactor(),
+          randomScalingFactor(),
+          randomScalingFactor(),
+          randomScalingFactor(),
           randomScalingFactor()
         ]
       }]
@@ -391,7 +391,7 @@ var config2 = {
 
  /*************************
       Chart Basic
-*************************/ 
+*************************/
     var config6 = {
       type: 'line',
       data: {
@@ -562,7 +562,7 @@ var config2 = {
                 text: 'Line Chart - Different point sizes'
             }
         }
-    };   
+    };
 
 /*************************
     Chart Stacked
@@ -606,7 +606,7 @@ var config2 = {
                     randomScalingFactor()
                 ]
             }]
-        };       
+        };
 
  /*************************
     window onload
@@ -650,7 +650,7 @@ var config2 = {
               });
             };
           }
-           if ($('#canvas6').exists()) {   
+           if ($('#canvas6').exists()) {
             var ctx6 = document.getElementById("canvas6").getContext("2d");
             window.myLine6 = new Chart(ctx6, config6);
           }
