@@ -12,22 +12,19 @@
 
                 <div class="mb-3">
                   <label class="form-label" for="exampleInputEmail1">Full Name</label>
-                  <input wire:model="fullname" type="text" class="form-control" aria-describedby="emailHelp"
-                    placeholder="IT">
+                  <input wire:model="fullname" type="text" class="form-control" aria-describedby="emailHelp">
                   @error('fullname') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="mb-3">
                   <label class="form-label" for="exampleInputEmail1">Email</label>
-                  <input wire:model="email" type="email" class="form-control" aria-describedby="emailHelp"
-                    placeholder="info@gmail.com">
+                  <input wire:model="email" type="email" class="form-control" aria-describedby="emailHelp">
                   @error('email') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="mb-3">
                   <label class="form-label" for="exampleInputEmail1">Password</label>
-                  <input wire:model="password" type="password" class="form-control" aria-describedby="emailHelp"
-                    placeholder="*******">
+                  <input wire:model="password" type="password" class="form-control" aria-describedby="emailHelp">
                   @error('password') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
 

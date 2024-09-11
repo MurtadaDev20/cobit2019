@@ -17,6 +17,7 @@ class SubProccess extends Component
     public $id;
 
 
+
     // The mount method captures the ID when the component is initialized
     public function mount($id)
     {
@@ -82,28 +83,37 @@ public function SubProccessDelete($procId)
     {
 
 
-
+        $mainName = null;
+        $descr = null;
 
             $mainProccess = MainProccess::find($this->id);
 
 
-            if (!$mainProccess) {
-                abort(404, 'MainProccess not found.');
-            }
-
-            $subProccesses = ModelsSubProccess::where('mainp_id', $this->id)
+            if ($mainProccess) {
+                $subProccesses = ModelsSubProccess::where('mainp_id', $this->id)
                                             ->orderByDesc('created_at')
                                             ->with('mainProccess')
                                             ->paginate(16);
 
-            $mainName = $mainProccess->name;
+                $mainName = $mainProccess->name;
 
+                $descr = $mainProccess->desc;
+            } else {
+                $subProccesses = ModelsSubProccess::orderByDesc('created_at')
+                                            ->with('mainProccess')
+                                            ->paginate(16);
+            }
 
 
 
     return view('livewire.sub-proccess', [
         'subProccesses' => $subProccesses,
-        'mainName' => $mainName
+        'descr' => $descr,
+        'mainName' => $mainName,
+
     ]);
     }
+
+
+
 }

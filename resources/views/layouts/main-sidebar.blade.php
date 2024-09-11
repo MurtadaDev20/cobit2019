@@ -17,7 +17,7 @@
                     <!-- menu item Elements-->
 
                     {{-- @endif --}}
-
+                    {{-- Main Proccess --}}
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#main-proccess">
                             <div class="pull-left"><i class="fa fa-folder"></i><span
@@ -29,7 +29,22 @@
                             <li><a href="{{route('mainProccess')}}">Manage Proccess</a></li>
                         </ul>
                     </li>
+                    {{-- Sub Proccess --}}
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#sub-proccess">
+                            <div class="pull-left"><i class="fa fa-folder"></i><span
+                                    class="right-nav-text">Sub Proccess</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="sub-proccess" class="collapse" data-parent="#sidebarnav">
+                            <li><a href="{{route('subProccessAll')}}">Show All Sub Proccess</a></li>
+                        </ul>
+                    </li>
                     {{-- Users  --}}
+                    @if (Auth::user()->role_id == 2 || Auth::user()->role_id == 3)
+
+                    @else
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#users">
                             <div class="pull-left"><i class="fa fa-folder"></i><span
@@ -41,6 +56,8 @@
                             <li><a href="{{route('allUsers')}}">Manage Users</a></li>
                         </ul>
                     </li>
+                    @endif
+
 
 
 

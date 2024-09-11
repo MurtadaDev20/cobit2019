@@ -1,46 +1,4 @@
 <div>
-    @if (Auth::user()->role_id == 2)
-
-    @else
-    <div class="row">
-      <div class="col-md-12 mb-30">
-        <div class="card card-statistics h-100">
-          <div class="card-body">
-            <div class="card-body">
-              <h5 class="card-title">
-                {{$mainName}}
-              </h5>
-
-              <form >
-                {{-- Add  --}}
-                <div class="mb-3">
-                  <label class="form-label" for="exampleInputEmail1">Sub Proccess Name</label>
-                  <input wire:model="name" type="text" class="form-control" aria-describedby="emailHelp">
-                  {{-- error text  --}}
-                  @error('name') <span class="text-danger">{{ $message }}</span> @enderror
-                </div>
-
-                <div class="mb-3">
-                  <label class="form-label" for="exampleInputEmail1">Sub Proccess Desecription</label>
-                  <textarea wire:model="desc" type="text" class="form-control" aria-describedby="emailHelp"  rows="3"></textarea>
-                  {{-- error text  --}}
-                  @error('desc') <span class="text-danger">{{ $message }}</span> @enderror
-                </div>
-
-
-                {{-- Edit --}}
-
-
-                <button wire:click.prevent="addSubProccess" type="submit" class="btn btn-primary">Add</button>
-
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    @endif
-
 {{-- ======================================================proccesses Detiles==================================================== --}}
 @isset($descr)
 <div class="row">

@@ -96,12 +96,14 @@ class Folders extends Component
                                             ->paginate(16);
 
             $subName = $subproccess->name;
+            $descr = $subproccess->desc;
 
 
 
 
     return view('livewire.folders', [
         'folders' => $folders,
+        'descr' => $descr,
         'subName' => $subName
     ]);
     }

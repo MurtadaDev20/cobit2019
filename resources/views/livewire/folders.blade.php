@@ -1,5 +1,8 @@
 <div>
     <div>
+        @if (Auth::user()->role_id == 2)
+
+        @else
         <div class="row">
           <div class="col-md-12 mb-30">
             <div class="card card-statistics h-100">
@@ -37,9 +40,28 @@
             </div>
           </div>
         </div>
+        @endif
 
     {{-- ======================================================proccesses Detiles==================================================== --}}
+    <div class="row">
+        <div class="col-sm-6 mb-4" >
 
+        </div>
+        <div class="col-md-12 mb-30">
+          <div class="card card-statistics h-100">
+            <div class="card-body">
+                <h4 class="mb-0"> Desecription </h4>
+                <hr>
+              <div class="card-body">
+
+                <p class="card-title">
+                  {{ $descr }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
       <div class="row">
         @foreach($folders as $folder)
         <div class="col-sm-6 col-lg-6 col-xl-3 mb-30">
@@ -47,18 +69,18 @@
               <div class="card-body">
                 <a href="{{route('file',$folder->id)}}" class="text-dark float-end" data-bs-toggle="tooltip" data-bs-placement="left" title=""
                     data-bs-original-title="View project"><i class="fa fa-eye"></i> <span>Show Files</span> </a>
-                <h5 class="mt-15 mb-15"><b>Sub Proccess Name</b></h5>
-                <p>  {{ $folder->name }}</p>
-
+                <h5 class="mt-15 mb-15"><b>Sub Proccess Name : {{ $folder->name }}</b></h5>
                 <div class="row">
-                  <div class="col-12 col-sm-12 mt-30">
+                  <div class="col-12 col-sm-12 mt-20">
                     <b>Files </b>
                     <h4 class="text-success mt-10">{{$folder->attach->count()}}</h4>
 
                   </div>
                 </div>
 
+                @if (Auth::user()->role_id == 2 )
 
+                @else
                 <div class="row">
                   <div class="col-12 col-sm-12 mt-30">
                     <div class="card-body">
@@ -90,7 +112,7 @@
                     </div>
                   </div>
                 </div>
-
+                @endif
               </div>
             </div>
           </div>

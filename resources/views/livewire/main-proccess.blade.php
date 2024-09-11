@@ -1,4 +1,8 @@
 <div>
+
+    @if (Auth::user()->role_id == 2)
+
+    @else
     <div class="row">
       <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
@@ -35,19 +39,20 @@
         </div>
       </div>
     </div>
+    @endif
 
 {{-- ==========================================================proccesses
   Detiles===================================================== --}}
 
   <div class="row">
     @foreach($proccesses as $proccess)
-    <div class="col-sm-6 col-lg-6 col-xl-3 mb-30">
+    <div class="col-sm-6 col-lg-6 col-xl-3 mb-10">
         <div class="card card-statistics h-100">
           <div class="card-body">
             <a href="{{route('subProccess',$proccess->id)}}" class="text-dark float-end" data-bs-toggle="tooltip" data-bs-placement="left" title=""
                 data-bs-original-title="View project"><i class="fa fa-eye"></i> <span>Show Proccess</span> </a>
-            <h5 class="mt-15 mb-15"><b>Proccess Name</b></h5>
-            <p>  {{ $proccess->name }}</p>
+            <h5 class="mt-15 mb-15"><b>Proccess Name : {{ $proccess->name }}</b></h5>
+            <p>  </p>
 
             <div class="row">
               <div class="col-12 col-sm-12 mt-30">
@@ -57,7 +62,9 @@
               </div>
             </div>
 
+            @if (Auth::user()->role_id == 2 || Auth::user()->role_id == 3)
 
+            @else
             <div class="row">
               <div class="col-12 col-sm-12 mt-30">
                 <div class="card-body">
@@ -91,7 +98,7 @@
                 </div>
               </div>
             </div>
-
+            @endif
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
 @section('css')
 @livewireStyles
 @section('title')
-Sub Proccesses 
+Sub Proccesses
 @stop
 @endsection
 @section('page-header')
@@ -27,7 +27,7 @@ Sub Proccesses
 
     {{-- {{$id}} --}}
     {{-- <livewire:sub-proccess /> --}}
-    @livewire('sub-proccess', ['id' => $id])
+    @livewire('sub-proccess-show')
 <!-- row closed -->
 @endsection
 @section('js')

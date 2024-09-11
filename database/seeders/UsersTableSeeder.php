@@ -14,8 +14,9 @@ class UsersTableSeeder extends Seeder
     public function run(): void
     {
         User::create([
-            'name' => 'Murtada Luqman',
-            'email' => 'murtada@gmail.com',
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'security_pass' => '1',
             'password' => bcrypt('12345678'),
         ])->roles()->attach(1); // Attach Admin role to the user
 

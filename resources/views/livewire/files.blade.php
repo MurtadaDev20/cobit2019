@@ -1,5 +1,34 @@
 <div>
     <div>
+        @if (Auth::user()->role_id == 2)
+        <div class="row">
+            <div class="col-md-12 mb-30">
+                <div class="card card-statistics h-100">
+                    <div class="card-body">
+                        {{-- <h5 class="card-title">{{ $subName }}</h5> --}}
+
+                        <form wire:submit.prevent="uploadFile">
+                            <div class="mb-3">
+                                <label class="form-label">Rate Files From 5</label>
+
+                                <select wire:model="selectFolder" class="form-control p-2" id="inlineFormSelectPref">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                                @error('filesMultiple') <span class="text-danger">{{ $message }}</span> @enderror
+                            </div>
+                            <div wire:loading wire:target="filesMultiple">Uploading...</div>
+                            <br>
+                            <button type="submit" class="btn btn-primary" wire:loading.attr="disabled">Rate</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @else
         <div class="row">
             <div class="col-md-12 mb-30">
                 <div class="card card-statistics h-100">
@@ -20,16 +49,19 @@
                 </div>
             </div>
         </div>
-
+        @endif
     {{-- ======================================================proccesses Detiles==================================================== --}}
 
     <div class="row">
         <div class="col-sm-6 mb-4" >
-            <h4 class="mb-0"> Note </h4>
+
         </div>
         <div class="col-md-12 mb-30">
           <div class="card card-statistics h-100">
+
             <div class="card-body">
+                <h4 class="mb-0"> Note </h4>
+                <hr>
               <div class="card-body">
                 <p class="card-title">
                   {{$note}}
@@ -58,6 +90,9 @@
                 </div>
             </div>
 
+            @if (Auth::user()->role_id == 2 )
+
+            @else
             <!-- Delete Modal -->
             <div class="modal fade" id="deleteModal-{{ $file->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -78,6 +113,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     @endforeach
 
