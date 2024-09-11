@@ -12,6 +12,8 @@ class SubProccess extends Model
     protected $fillable = [
         'name',
         'desc',
+        'note',
+        'rate',
         'mainp_id'
     ];
 
@@ -20,9 +22,9 @@ class SubProccess extends Model
         return $this->belongsTo(MainProccess::class,'mainp_id');
     }
 
-    public function folders()
+    public function attach()
     {
-        return $this->hasMany(Folder::class,'subp_id');
+        return $this->hasMany(Attach::class, 'subp_id');
     }
 
 

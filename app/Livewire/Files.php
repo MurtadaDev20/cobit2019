@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Attach;
-use App\Models\Folder;
+use App\Models\SubProccess;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -16,19 +16,16 @@ class Files extends Component
     use WithPagination;
     use WithFileUploads;
 
-    public $id,$attach;
+    public $id,$attach,$rate;
     public $filesMultiple = [];
 
     public function mount($id)
     {
         $this->id = $id;
     }
-
+// End Function
     public function uploadFile()
     {
-
-
-
 
         $this->validate([
             'filesMultiple.*' => 'required|file|max:10000000',
@@ -43,7 +40,7 @@ class Files extends Component
             Attach::create([
                 'file_name' => $file->getClientOriginalName(),
                 'file_path' => $filePath,
-                'folder_id' => $this->id
+                'subp_id' => $this->id
             ]);
         }
 
@@ -57,8 +54,17 @@ class Files extends Component
 
 
     }
+// End Function
 
+    public function rateSubProccess()
+    {
 
+        $subProccess = SubProccess::where('id',$this->id)->first();
+        $subProccess->rate = $this->rate;
+        $subProccess->save();
+    }
+
+// End Function
     public function deleteFile($fileId)
     {
         $id = $this->id;
@@ -80,37 +86,40 @@ class Files extends Component
                 toastr()->error('File not found in storage.');
             }
 
-            return redirect()->to(route('file', ['folder' => $id]));
+            return redirect()->to(route('file', ['subProccess' => $id]));
         } else {
             toastr()->error('File record not found.');
-            return redirect()->to(route('file', ['folder' => $id]));
+            return redirect()->to(route('file', ['subProccess' => $id]));
         }
     }
-
+// End Function
 
     public function render()
     {
-        $folder = Folder::find($this->id);
+        $subProccess = SubProccess::find($this->id);
 
 
-            if (!$folder) {
+            if (!$subProccess) {
                 abort(404, 'MainProccess not found.');
             }
 
-            $files = Attach::where('folder_id', $this->id)
+            $files = Attach::where('subp_id', $this->id)
                                             ->orderByDesc('created_at')
                                             ->paginate(16);
 
-            $note = $folder->note;
+            $note = $subProccess->note;
+            $descr = $subProccess->desc;
 
 
 
 
             return view('livewire.files', [
                 'files' => $files,
+                'descr' => $descr,
                 'note' => $note
             ]);
 
 
     }
+    // End Function
 }

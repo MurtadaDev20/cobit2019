@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('file_name');
             $table->string('file_path');
-            $table->foreignId('folder_id')->constrained('folders')->onDelete('cascade');
+            $table->foreignId('subp_id')->constrained('sub_proccesses')->onDelete('cascade');
             $table->timestamps();
         });
     }

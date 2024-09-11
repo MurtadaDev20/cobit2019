@@ -13,7 +13,7 @@ use function Laravel\Prompts\error;
 class SubProccess extends Component
 {
     use WithPagination;
-    public $name, $desc, $proccessess ;
+    public $name, $desc, $proccessess,$note ;
     public $id;
 
 
@@ -37,6 +37,7 @@ class SubProccess extends Component
         ModelsSubProccess::create([
             'name' => $this->name,
             'desc' => $this->desc,
+            'note' => $this->note,
             'mainp_id' => $this->id
         ]);
 

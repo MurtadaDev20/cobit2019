@@ -112,26 +112,6 @@
                         <div class="card-body">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <span class="text-warning ">
-                                        <i class="fa fa-folder highlight-icon" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="float-right text-right">
-                                    <p class="card-text text-dark">Folders</p>
-                                    <h4>{{App\Models\Folder::count()}}</h4>
-                                </div>
-                            </div>
-                            {{-- <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fa fa-calendar mr-1" aria-hidden="true"></i> Sales Per Week
-                            </p> --}}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
                                     <span class="text-danger">
                                         <i class="fa fa-file-pdf-o highlight-icon" aria-hidden="true"></i>
                                     </span>

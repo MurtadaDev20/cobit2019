@@ -11,10 +11,11 @@ class Attach extends Model
 
     protected $fillable = ['file_name', 'file_path' , 'folder_id','subp_id'];
 
-    public function folder()
+    
+    public function subProccess()
     {
-        return $this->belongsTo(Folder::class,'folder_id');
+        return $this->belongsTo(SubProccess::class,'folder_id');
     }
 
-   
+
 }

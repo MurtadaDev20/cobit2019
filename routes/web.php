@@ -29,9 +29,9 @@ Route::get('/main-proccess', function () {return view('layouts.admin.mainProcess
 Route::get('/sub-proccess/{process}', [ProcessController::class, 'show'])->name('subProccess');
 Route::get('/sub-proccess',function () {return view('layouts.admin.subProccessShow'); })->name('subProccessAll');
 
-Route::get('/folders/{SubProcess}', [folderController::class, 'show'])->name('folder');
 
-Route::get('/files/{folder}', [fileController::class, 'show'])->name('file');
+
+Route::get('/files/{subProccess}', [fileController::class, 'show'])->name('file');
 
 //Users
 Route::get('/all-users', function () {return view('layouts.admin.allusers');})->name('allUsers');

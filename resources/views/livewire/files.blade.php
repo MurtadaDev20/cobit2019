@@ -7,22 +7,20 @@
                     <div class="card-body">
                         {{-- <h5 class="card-title">{{ $subName }}</h5> --}}
 
-                        <form wire:submit.prevent="uploadFile">
+                        <form wire:submit.prevent="rateSubProccess">
                             <div class="mb-3">
                                 <label class="form-label">Rate Files From 5</label>
 
-                                <select wire:model="selectFolder" class="form-control p-2" id="inlineFormSelectPref">
+                                <select wire:model="rate" class="form-control p-2" id="inlineFormSelectPref">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                                 </select>
-                                @error('filesMultiple') <span class="text-danger">{{ $message }}</span> @enderror
+                                @error('rate') <span class="text-danger">{{ $message }}</span> @enderror
                             </div>
-                            <div wire:loading wire:target="filesMultiple">Uploading...</div>
-                            <br>
-                            <button type="submit" class="btn btn-primary" wire:loading.attr="disabled">Rate</button>
+                            <button type="submit" class="btn btn-primary">Rate</button>
                         </form>
                     </div>
                 </div>
@@ -60,12 +58,18 @@
           <div class="card card-statistics h-100">
 
             <div class="card-body">
-                <h4 class="mb-0"> Note </h4>
-                <hr>
-              <div class="card-body">
-                <p class="card-title">
-                  {{$note}}
-                </p>
+                <div class="card-body">
+
+                    <div class="accordion gray plus-icon round">
+                        <div class="acd-group">
+                            <a href="#" class="acd-heading">Desecription</a>
+                            <div class="acd-des" style="display: none;">{{ $descr }}</div>
+                        </div>
+                        <div class="acd-group">
+                            <a href="#" class="acd-heading">Note</a>
+                            <div class="acd-des" style="display: none;">{{ $note }}</div>
+                        </div>
+                    </div>
               </div>
             </div>
           </div>

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\MainProccess as ModelsMainProccess;
+use App\Models\SubProccess;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -62,10 +63,12 @@ class MainProccess extends Component
 
     public function render()
     {
+
         $proccesses = ModelsMainProccess::with('subProccess')
             ->orderByDesc('created_at')
             ->paginate(16);
 
+        
         return view('livewire.main-proccess', [
             'proccesses' => $proccesses,
         ]);

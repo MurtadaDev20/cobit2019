@@ -27,6 +27,12 @@
                   @error('desc') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
 
+                <div class="mb-3">
+                  <label class="form-label" for="exampleInputEmail1">Note</label>
+                  <textarea wire:model="note" type="text" class="form-control" aria-describedby="emailHelp"  rows="3"></textarea>
+
+                </div>
+
 
                 {{-- Edit --}}
 
@@ -50,13 +56,16 @@
     <div class="col-md-12 mb-30">
       <div class="card card-statistics h-100">
         <div class="card-body">
-            <h4 class="mb-0"> Desecription </h4>
-            <hr>
+
           <div class="card-body">
 
-            <p class="card-title">
-              {{ $descr }}
-            </p>
+                <div class="accordion gray plus-icon round">
+                    <div class="acd-group">
+                        <a href="#" class="acd-heading">Desecription</a>
+                        <div class="acd-des" style="display: none;">{{ $descr }}</div>
+                    </div>
+                </div>
+
           </div>
         </div>
       </div>
@@ -69,15 +78,23 @@
     <div class="col-sm-6 col-lg-6 col-xl-3 mb-30">
         <div class="card card-statistics h-100">
           <div class="card-body">
-            <a href="{{route('folder',$subProccess->id)}}" class="text-dark float-end" data-bs-toggle="tooltip" data-bs-placement="left" title=""
-                data-bs-original-title="View project"><i class="fa fa-eye"></i> <span>Show Folders</span> </a>
+            <a href="{{route('file',$subProccess->id)}}" class="text-dark float-end" data-bs-toggle="tooltip" data-bs-placement="left" title=""
+                data-bs-original-title="View project"><i class="fa fa-eye"></i> <span>Show Files</span> </a>
             <h5 class="mt-15 mb-15"><b>Sub Proccess Name : {{ $subProccess->name }}</b></h5>
-            <p>  </p>
+            {{-- Status  --}}
+
+             @if($subProccess->rate == null || $subProccess->rate == 1)
+                <span class="badge bg-danger small badge-absolute" style="color: white">non compliance</span>
+            @elseif ($subProccess->rate > 1 && $subProccess->rate < 5)
+                <span class="badge bg-warning small badge-absolute" style="color: white">Partially</span>
+            @else
+            <span class="badge bg-success small badge-absolute" style="color: white">Fully</span>
+            @endif
 
             <div class="row">
               <div class="col-12 col-sm-12 mt-10">
-                <b>Folder Count</b>
-                <h4 class="text-success mt-10">{{$subProccess->folders->count()}}</h4>
+                <b>File Count</b>
+                <h4 class="text-success mt-10">{{$subProccess->attach->count()}}</h4>
 
               </div>
             </div>

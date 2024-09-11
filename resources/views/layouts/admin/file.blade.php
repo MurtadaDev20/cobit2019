@@ -17,7 +17,6 @@ Files
                 <li class="breadcrumb-item"><a href="#" class="default-color">Home</a></li>
                 <li class="breadcrumb-item ">    Main Proccess   </li>
                 <li class="breadcrumb-item ">    Sub Proccess   </li>
-                <li class="breadcrumb-item text-b">    Folders   </li>
                 <li class="breadcrumb-item active">    Files   </li>
             </ol>
         </div>

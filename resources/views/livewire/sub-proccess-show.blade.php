@@ -8,13 +8,14 @@
     <div class="col-md-12 mb-30">
       <div class="card card-statistics h-100">
         <div class="card-body">
-            <h4 class="mb-0"> Desecription </h4>
-            <hr>
-          <div class="card-body">
+            <div class="card-body">
 
-            <p class="card-title">
-              {{ $descr }}
-            </p>
+                <div class="accordion gray plus-icon round">
+                    <div class="acd-group">
+                        <a href="#" class="acd-heading">Desecription</a>
+                        <div class="acd-des" style="display: none;">{{ $descr }}</div>
+                    </div>
+                </div>
           </div>
         </div>
       </div>
@@ -30,6 +31,7 @@
             <a href="{{route('folder',$subProccess->id)}}" class="text-dark float-end" data-bs-toggle="tooltip" data-bs-placement="left" title=""
                 data-bs-original-title="View project"><i class="fa fa-eye"></i> <span>Show Folders</span> </a>
             <h5 class="mt-15 mb-15"><b>Sub Proccess Name : {{ $subProccess->name }}</b></h5>
+            <span class="badge bg-danger small badge-absolute" style="color: white">non compliance</span>
             <p>  </p>
 
             <div class="row">
