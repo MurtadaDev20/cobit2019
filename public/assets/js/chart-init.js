@@ -114,97 +114,11 @@ NOTE:
 /*************************
      Line Styles
 *************************/
-var config2 = {
-            type: 'line',
-            data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
-                datasets: [{
-                    label: "Unfilled",
-                    fill: false,
-                    backgroundColor: window.chartColors.blue,
-                    borderColor: window.chartColors.blue,
-                    data: [
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor()
-                    ],
-                }, {
-                    label: "Dashed",
-                    fill: false,
-                    backgroundColor: window.chartColors.green,
-                    borderColor: window.chartColors.green,
-                    borderDash: [5, 5],
-                    data: [
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor()
-                    ],
-                }, {
-                    label: "Filled",
-                    backgroundColor: window.chartColors.red,
-                    borderColor: window.chartColors.red,
-                    data: [
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor(),
-                        randomScalingFactor()
-                    ],
-                    fill: true,
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                title:{
-                    display:true,
-                    text:'Line Chart - Line styles'
-                },
-                tooltips: {
-                    mode: 'index',
-                    intersect: false,
-                },
-                hover: {
-                    mode: 'nearest',
-                    intersect: true
-                },
-                scales: {
-                    xAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Month'
-                        }
-                    }],
-                    yAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Value'
-                        }
-                    }]
-                }
-            }
-        };
-
-/*************************
-     doughnut
-*************************/
 function getRandomColor() {
-    var letters = '0123456789ABCDEF';
+    var letters = 'ABCDEF';
     var color = '#';
     for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
+        color += letters[Math.floor(Math.random() * 6)];
     }
     return color;
 }
@@ -222,6 +136,39 @@ if (typeof subProccessesData !== 'undefined') {
 var backgroundColors = subProccessesData.map(function() {
     return getRandomColor();
 });
+var config2 = {
+    type: 'bar',
+    data: {
+        datasets: [{
+            data: rates,
+            backgroundColor: backgroundColors,
+            label: 'SubProccess Rates'
+        }],
+        labels: labels
+
+    },
+
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+            position: 'bottom',
+        },
+        title: {
+            display: false,
+            text: 'Doughnut Chart'
+        },
+        animation: {
+            animateScale: true,
+            animateRotate: true
+        }
+    }
+        };
+
+/*************************
+     doughnut
+*************************/
+
         var config3 = {
         type: 'polarArea',
         data: {
