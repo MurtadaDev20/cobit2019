@@ -5,12 +5,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template" />
-    <meta name="author" content="potenzaglobalsolutions.com" />
+    <meta name="description" content="Cobit 2019" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     {{-- Start Pusher --}}
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
-    
+
     @vite('resources/js/app.js')
 
     {{-- End Pusher --}}
