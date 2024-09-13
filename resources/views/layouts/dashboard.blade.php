@@ -66,6 +66,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Main Proccess --}}
                 <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
@@ -76,7 +77,7 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Main Proccess</p>
+                                    <h4 class="card-text text-dark">Main Proccess</h4>
                                     <h4>{{App\Models\MainProccess::count()}}</h4>
                                 </div>
                             </div>
@@ -86,6 +87,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Sub Proccess --}}
                 <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
@@ -96,7 +98,7 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Sub Proccess</p>
+                                    <h4 class="card-text text-dark">Sub Proccess</h4>
                                     <h4>{{App\Models\SubProccess::count()}}</h4>
                                 </div>
                             </div>
@@ -107,6 +109,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Files --}}
                 <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
@@ -117,7 +120,7 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Files</p>
+                                    <h4 class="card-text text-dark">Files</h4>
                                     <h4>{{App\Models\Attach::count()}}</h4>
                                 </div>
                             </div>
@@ -127,6 +130,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- Need Aproval  --}}
                 <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
@@ -137,7 +141,7 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Need approval</p>
+                                    <h4 class="card-text text-dark">Need approval</h4>
                                     <h4>{{App\Models\Attach::count()}}</h4>
                                 </div>
                             </div>
@@ -147,12 +151,60 @@
                         </div>
                     </div>
                 </div>
+                {{-- Rate --}}
+                <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
+                    <div class="card card-statistics h-100">
+                        <div class="card-body">
+                            <div class="clearfix">
+                                <div class="float-left">
+
+                                    @if ( \App\Models\SubProccess::avg('rate') <= 1)
 
 
+                                    <span class="text-danger">
+                                        <i class="fa fa-percent fa-shake highlight-icon" aria-hidden="true"></i>
+                                    </span>
+                                </div>
+                                <div class="float-right text-right text-danger">
+                                    <h4 class="card-text" >Non complince </h4>
+                                    <h4 class="text-danger">{{\App\Models\SubProccess::avg('rate')}}</h4>
+                                </div>
+
+                                @elseif (\App\Models\SubProccess::avg('rate') > 1 && \App\Models\SubProccess::avg('rate') < 5)
+
+                                <span class="text-warning">
+                                    <i class="fa fa-percent fa-shake highlight-icon" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                                <div class="float-right text-right">
+                                    <h4 class="card-text text-warning">Partially</h4>
+                                    <h4 class="text-warning">{{\App\Models\SubProccess::avg('rate')}}</h4>
+                                </div>
+                                @else
+
+                                <span class="text-success">
+                                    <i class="fa fa-percent fa-shake highlight-icon" aria-hidden="true"></i>
+                                </span>
+                            </div>
+                                <div class="float-right text-right">
+                                    <h4 class="card-text text-success">Fully</h4>
+                                    <h4 class="text-success">{{\App\Models\SubProccess::avg('rate')}}</h4>
+                                </div>
+
+                                @endif
+                            </div>
+                            {{-- <p class="text-muted pt-3 mb-0 mt-2 border-top">
+                                <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
+                            </p> --}}
+                        </div>
+                    </div>
+                </div>
+
+                {{-- {{$subProccesses}} --}}
             </div>
 
             <div class="card-body">
-                <h5 class="card-title">Doughnut </h5>
+                <h5 class="card-title">Avarge Rate </h5>
                 <div class="chart-wrapper">
                     <div id="canvas-holder" style="width: 100%; margin: 0 auto; height: 300px;">
                         <div class="chartjs-size-monitor"
@@ -169,7 +221,7 @@
                         <canvas id="canvas3" width="446" height="375"
                             style="display: block; height: 300px; width: 357px;"
                             class="chartjs-render-monitor"></canvas>
-                        <button class="button gray x-small mt-50" id="addData">Add Data</button>
+
                     </div>
                 </div>
             </div>
@@ -191,7 +243,11 @@
  footer -->
 
     @include('layouts.footer-scripts')
+    <script>
 
+        var subProccessesData = @json($subProccesses);
+    </script>
+    <script src="{{ URL::asset('assets/js/chart-init.js') }}"></script>
 </body>
 
 </html>

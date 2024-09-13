@@ -10,7 +10,7 @@
 </script>
 
 <!-- chart -->
-<script src="{{ URL::asset('assets/js/chart-init.js') }}"></script>
+
 <!-- calendar -->
 <script src="{{ URL::asset('assets/js/calendar.init.js') }}"></script>
 <!-- charts sparkline -->

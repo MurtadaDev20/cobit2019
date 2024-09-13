@@ -28,16 +28,25 @@
     <div class="col-sm-6 col-lg-6 col-xl-3 mb-30">
         <div class="card card-statistics h-100">
           <div class="card-body">
-            <a href="{{route('folder',$subProccess->id)}}" class="text-dark float-end" data-bs-toggle="tooltip" data-bs-placement="left" title=""
-                data-bs-original-title="View project"><i class="fa fa-eye"></i> <span>Show Folders</span> </a>
+            <a href="{{route('file',$subProccess->id)}}" class="text-dark float-end" data-bs-toggle="tooltip" data-bs-placement="left" title=""
+                data-bs-original-title="View project"><i class="fa fa-eye"></i> <span>Show Files</span> </a>
             <h5 class="mt-15 mb-15"><b>Sub Proccess Name : {{ $subProccess->name }}</b></h5>
-            <span class="badge bg-danger small badge-absolute" style="color: white">non compliance</span>
-            <p>  </p>
+            {{-- Status  --}}
+
+            @if($subProccess->rate == 1)
+                <span class="badge bg-danger small badge-absolute" style="color: white">Non Compliance</span>
+            @elseif($subProccess->rate == null)
+            <span class="badge bg-dark small badge-absolute" style="color: white">No Rate</span>
+            @elseif ($subProccess->rate > 1 && $subProccess->rate < 5)
+                <span class="badge bg-warning small badge-absolute" style="color: white">Partially</span>
+            @else
+            <span class="badge bg-success small badge-absolute" style="color: white">Fully</span>
+            @endif
 
             <div class="row">
               <div class="col-12 col-sm-12 mt-10">
-                <b>Folder Count</b>
-                <h4 class="text-success mt-10">{{$subProccess->folders->count()}}</h4>
+                <b>File Count</b>
+                <h4 class="text-success mt-10">{{$subProccess->attach->count()}}</h4>
 
               </div>
             </div>
@@ -48,16 +57,16 @@
             <div class="row">
               <div class="col-12 col-sm-12 mt-30">
                 <div class="card-body">
-                  <a  class="button button-border x-small"href="#" title="Edit"><i class="fa fa-edit"></i></a>
-                    <button class="button button-border x-small"  title="Delete" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></button>
+                  {{-- <a  class="button button-border x-small"href="#" title="Edit"><i class="fa fa-edit"></i></a> --}}
+                    <button class="button button-border x-small"  title="Delete" data-toggle="modal" data-target="#deleteModal{{ $subProccess->id }}"><i class="fa fa-trash"></i></button>
 
                <!-- Delete Modal -->
-                                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
-                                    aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="deleteModal{{ $subProccess->id }}" tabindex="-1" role="dialog"
+                                    aria-labelledby="deleteModalLabel{{ $subProccess->id }}" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteModalLabel">Delete User</h5>
+                                        <h5 class="modal-title" id="deleteModalLabel{{ $subProccess->id }}">Delete Sub Proccess</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>

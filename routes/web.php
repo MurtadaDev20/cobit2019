@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\fileController;
 use App\Http\Controllers\folderController;
+use App\Http\Controllers\getDataRateController;
 use App\Http\Controllers\ProcessController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +23,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
-Route::get('/dashboard', function () {return view('layouts.dashboard'); })->name('dashboard');
+Route::get('/dashboard', [getDataRateController::class,'index'])->name('dashboard');
 Route::get('/main-proccess', function () {return view('layouts.admin.mainProcess'); })->name('mainProccess');
 
 

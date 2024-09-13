@@ -8,6 +8,7 @@ NOTE:
 
 */
 
+
  (function($){
   "use strict";
 // Line Stacked
@@ -199,34 +200,40 @@ var config2 = {
 /*************************
      doughnut
 *************************/
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+if (typeof subProccessesData !== 'undefined') {
+    // Extract rates and names from the subProccesses data
+    var rates = subProccessesData.map(function(subProccess) {
+        return subProccess.rate;
+    });
+
+    var labels = subProccessesData.map(function(subProccess) {
+        return subProccess.name;
+    });
+}
+var backgroundColors = subProccessesData.map(function() {
+    return getRandomColor();
+});
         var config3 = {
-        type: 'doughnut',
+        type: 'polarArea',
         data: {
             datasets: [{
-                data: [
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                    randomScalingFactor(),
-                ],
-                backgroundColor: [
-                    window.chartColors.red,
-                    window.chartColors.orange,
-                    window.chartColors.yellow,
-                    window.chartColors.green,
-                    window.chartColors.blue,
-                ],
-                label: 'Dataset 1'
+                data: rates,
+                backgroundColor: backgroundColors,
+                label: 'SubProccess Rates'
             }],
-            labels: [
-                "Red",
-                "Orange",
-                "Yellow",
-                "Green",
-                "Blue"
-            ]
+            labels: labels
+
         },
+
         options: {
             responsive: true,
             maintainAspectRatio: false,

@@ -9,12 +9,12 @@ class Attach extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['file_name', 'file_path' , 'folder_id','subp_id'];
+    protected $fillable = ['file_name', 'file_path' , 'subp_id'];
 
-    
+
     public function subProccess()
     {
-        return $this->belongsTo(SubProccess::class,'folder_id');
+        return $this->belongsTo(SubProccess::class,'subp_id');
     }
 
 

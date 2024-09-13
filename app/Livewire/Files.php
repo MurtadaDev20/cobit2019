@@ -67,6 +67,8 @@ class Files extends Component
 // End Function
     public function deleteFile($fileId)
     {
+
+       
         $id = $this->id;
         $file = Attach::find($fileId);
 

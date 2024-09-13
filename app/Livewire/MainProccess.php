@@ -43,7 +43,6 @@ class MainProccess extends Component
     public function MainProccessDelete($procId)
     {
         $proce = ModelsMainProccess::find($procId);
-
         if (!$proce) {
             toastr()->error('Main Process not found.');
             return redirect()->to(route('mainProccess'));
@@ -68,7 +67,7 @@ class MainProccess extends Component
             ->orderByDesc('created_at')
             ->paginate(16);
 
-        
+
         return view('livewire.main-proccess', [
             'proccesses' => $proccesses,
         ]);

@@ -60,7 +60,7 @@
               </div>
             </div>
 
-           
+
 
             @if (Auth::user()->role_id == 2 || Auth::user()->role_id == 3)
 
@@ -71,21 +71,21 @@
                   <a wire:click.prevent="editDepartment({{ $proccess->id }})" class="button button-border x-small"
                     href="#" title="Edit"><i class="fa fa-edit"></i></a>
                     <button class="button button-border x-small"  title="Delete"
-                    data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></button>
+                    data-toggle="modal" data-target="#deleteModal{{ $proccess->id }}"><i class="fa fa-trash"></i></button>
 
                <!-- Delete Modal -->
-                                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
-                                    aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="deleteModal{{ $proccess->id }}" tabindex="-1" role="dialog"
+                                    aria-labelledby="deleteModalLabel{{ $proccess->id }}" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteModalLabel">Delete User</h5>
+                                        <h5 class="modal-title" id="deleteModalLabel{{ $proccess->id }}">Delete Main Proccess</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                         </div>
                                         <div class="modal-body">
-                                        Are you sure you want to delete this File?
+                                        Are you sure you want to delete Main Proccess?
                                         </div>
                                         <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

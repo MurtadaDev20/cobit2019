@@ -83,7 +83,7 @@
             <h5 class="mt-15 mb-15"><b>Sub Proccess Name : {{ $subProccess->name }}</b></h5>
             {{-- Status  --}}
 
-             @if($subProccess->rate == null || $subProccess->rate == 1)
+            @if($subProccess->rate == null || $subProccess->rate == 1)
                 <span class="badge bg-danger small badge-absolute" style="color: white">non compliance</span>
             @elseif ($subProccess->rate > 1 && $subProccess->rate < 5)
                 <span class="badge bg-warning small badge-absolute" style="color: white">Partially</span>
@@ -106,15 +106,15 @@
               <div class="col-12 col-sm-12 mt-30">
                 <div class="card-body">
                   <a  class="button button-border x-small"href="#" title="Edit"><i class="fa fa-edit"></i></a>
-                    <button class="button button-border x-small"  title="Delete" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash"></i></button>
+                    <button class="button button-border x-small"  title="Delete" data-toggle="modal" data-target="#deleteModal{{ $subProccess->id }}"><i class="fa fa-trash"></i></button>
 
                <!-- Delete Modal -->
-                                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
-                                    aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="deleteModal{{ $subProccess->id }}" tabindex="-1" role="dialog"
+                                    aria-labelledby="deleteModalLabel{{ $subProccess->id }}" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteModalLabel">Delete User</h5>
+                                        <h5 class="modal-title" id="deleteModalLabel{{ $subProccess->id }}">Delete Sub Proccess</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>

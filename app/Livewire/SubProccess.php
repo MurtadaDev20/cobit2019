@@ -59,14 +59,13 @@ public function SubProccessDelete($procId)
 {
     $id = $this->id;
     $proce = ModelsSubProccess::find($procId);
-
     if (!$proce) {
         toastr()->error('Sub Process not found.');
         return redirect()->to(route('mainProccess'));
     }
 
-    if ($proce->folders()->count() > 0) {
-        toastr()->error('Cannot delete Sub Process. It contains a Folders.');
+    if ($proce->attach()->count() > 0) {
+        toastr()->error('Cannot delete Sub Process. It contains a Files.');
         return redirect()->to(route('subProccess',['process' => $id]));
     }
 
