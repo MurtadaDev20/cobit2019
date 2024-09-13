@@ -56,7 +56,7 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">Users</p>
+                                    <h4 class="card-text text-dark">Users</h4>
                                     <h4>{{App\Models\User::count()}}</h4>
                                 </div>
                             </div>
@@ -167,7 +167,7 @@
                                 </div>
                                 <div class="float-right text-right text-danger">
                                     <h4 class="card-text" >Non complince </h4>
-                                    <h4 class="text-danger">{{\App\Models\SubProccess::avg('rate')}}</h4>
+                                    <h4 class="text-danger">{{round(\App\Models\SubProccess::avg('rate'), 2)}}</h4>
                                 </div>
 
                                 @elseif (\App\Models\SubProccess::avg('rate') > 1 && \App\Models\SubProccess::avg('rate') < 5)
@@ -178,7 +178,7 @@
                             </div>
                                 <div class="float-right text-right">
                                     <h4 class="card-text text-warning">Partially</h4>
-                                    <h4 class="text-warning">{{\App\Models\SubProccess::avg('rate')}}</h4>
+                                    <h4 class="text-warning">{{round(\App\Models\SubProccess::avg('rate'), 2)}}</h4>
                                 </div>
                                 @else
 
@@ -188,7 +188,7 @@
                             </div>
                                 <div class="float-right text-right">
                                     <h4 class="card-text text-success">Fully</h4>
-                                    <h4 class="text-success">{{\App\Models\SubProccess::avg('rate')}}</h4>
+                                    <h4 class="text-success">{{round(\App\Models\SubProccess::avg('rate'), 2)}}</h4>
                                 </div>
 
                                 @endif
