@@ -50,12 +50,6 @@
               <div class="section-field mb-20">
                 <label class="mb-10" for="Password">Password* </label>
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
               </div>
 
               <div class="section-field">

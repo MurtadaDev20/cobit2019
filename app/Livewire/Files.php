@@ -34,7 +34,8 @@ class Files extends Component
 
 
         foreach ($this->filesMultiple as $file) {
-            $filePath = $file->store('uploads', 'public');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('uploads', $fileName, 'public');
 
             // Save to the attach table
             Attach::create([
@@ -65,10 +66,26 @@ class Files extends Component
     }
 
 // End Function
+
+
+public function downloadFile($fileId)
+    {
+        $file = Attach::findOrFail($fileId);
+        $filePath = storage_path('app/public/' . $file->file_path);
+        return response()->download($filePath);
+    }
+
+    public function viewPdf($fileId)
+    {
+        $file = Attach::findOrFail($fileId);
+        $filePath = storage_path('app/' . $file->file);
+
+        // $this->fileContent = base64_encode(file_get_contents($filePath));
+    }
     public function deleteFile($fileId)
     {
 
-       
+
         $id = $this->id;
         $file = Attach::find($fileId);
 

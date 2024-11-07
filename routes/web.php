@@ -4,6 +4,7 @@ use App\Http\Controllers\fileController;
 use App\Http\Controllers\folderController;
 use App\Http\Controllers\getDataRateController;
 use App\Http\Controllers\ProcessController;
+use App\Http\Controllers\ViewFileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -38,4 +39,6 @@ Route::get('/files/{subProccess}', [fileController::class, 'show'])->name('file'
 Route::get('/all-users', function () {return view('layouts.admin.allusers');})->name('allUsers');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/view-file/{file}', [ViewFileController::class,'view'])->name('viewFile');
 });

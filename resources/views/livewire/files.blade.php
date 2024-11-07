@@ -82,15 +82,28 @@
         <div class="col-sm-6 col-lg-6 col-xl-3 mb-30">
             <div class="card card-statistics h-100">
                 <div class="card-body">
-                    <h5 class="mt-15 mb-15"><b>{{ $file->file_name }}</b></h5>
 
-                    <div class="row">
-                        <div class="col-12 col-sm-12 mt-30">
-                            <div class="card-body">
-                                <button class="button button-border x-small" title="Delete" data-toggle="modal" data-target="#deleteModal-{{ $file->id }}"><i class="fa fa-trash"></i></button>
+                    <img class="img-fluid mb-20" src="{{asset('assets/images/file-icon/PDF.png')}}" alt="">
+                    <div class="d-block d-md-flex justify-content-between">
+                        <div class="d-block">
+                            <p class="mt-15 mb-15"><b>{{ $file->file_name }}</b></p>
+                          </div>
+                          <div class="d-block d-md-flex">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button class="btn btn-outline-success btn-sm" title="Delete" data-toggle="modal" data-target="#deleteModal-{{ $file->id }}"><i class="fa fa-trash"></i></button>
+                                  {{-- Download --}}
+                                  <button wire:click="downloadFile({{$file->id}})" class="btn btn-outline-success btn-sm" title="download"><i class="fa fa-download"></i></button>
+                                  <button onclick="window.location.href='{{ route('viewFile', $file->id) }}'" class="btn btn-outline-success btn-sm" title="View">
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                                </div>
                             </div>
-                        </div>
+                          </div>
                     </div>
+
+
+
                 </div>
             </div>
 
