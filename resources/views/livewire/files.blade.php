@@ -26,6 +26,8 @@
                 </div>
             </div>
         </div>
+        @elseif (Auth::user()->role_id == 4 || Auth::user()->role_id == 1)
+
         @else
         <div class="row">
             <div class="col-md-12 mb-30">
@@ -137,5 +139,42 @@
       </div>
       {{$files->links()}}
       </div>
+
+    <hr>
+        <!-- Comments Section -->
+    <div class="comments-section mt-4">
+
+
+        <!-- Add new comment -->
+        @if(Auth::check())
+            <form wire:submit.prevent="storeComment" class="mt-3">
+                <div class="form-group">
+                    <label for="content">Add a Comment</label>
+                    <textarea wire:model="content" class="form-control" placeholder="Type your comment here"></textarea>
+                    @error('content') <span class="text-danger">{{ $message }}</span> @enderror
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Post Comment</button>
+            </form>
+        @else
+            <p>Please <a href="{{ route('login') }}">log in</a> to post a comment.</p>
+        @endif
+<br>
+
+
+        <div class="card card-statistics mb-30">
+            <div class="card-body">
+              <h5 class="card-title">Comments</h5>
+              <div class="scrollbar max-h-200" tabindex="2" style="overflow-y: auto; outline: none;">
+                @foreach($comments as $comment)
+                <div class="comment mb-2">
+                    <strong>{{ $comment->user->name }}</strong>:
+                    <p>{{ $comment->content }}</p>
+                    <small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small>
+                </div>
+                @endforeach
+              </div>
+            </div>
+          </div>
+    </div>
 
 </div>

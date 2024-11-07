@@ -3,7 +3,9 @@
 namespace App\Livewire;
 
 use App\Models\Attach;
+use App\Models\Comment;
 use App\Models\SubProccess;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -16,12 +18,14 @@ class Files extends Component
     use WithPagination;
     use WithFileUploads;
 
-    public $id,$attach,$rate;
+    public $id,$attach,$rate,$content;
     public $filesMultiple = [];
+    public $comments = [];
 
     public function mount($id)
     {
         $this->id = $id;
+        $this->loadComments();
     }
 // End Function
     public function uploadFile()
@@ -113,6 +117,32 @@ public function downloadFile($fileId)
     }
 // End Function
 
+public function loadComments()
+    {
+        $this->comments = Comment::where('supP_id', $this->id)
+                                 ->orderByDesc('created_at')
+                                 ->get();
+    }
+
+
+public function storeComment()
+    {
+        $this->validate([
+            'content' => 'required|string',
+        ]);
+        $userId = Auth::user()->id;
+        Comment::create([
+            'user_id' => $userId,
+            'supP_id' => $this->id,
+            'content' => $this->content,
+        ]);
+
+        $this->content = '';
+        $this->loadComments();
+
+        toastr()->success( 'Comment added successfully.');
+    }
+
     public function render()
     {
         $subProccess = SubProccess::find($this->id);
@@ -135,7 +165,8 @@ public function downloadFile($fileId)
             return view('livewire.files', [
                 'files' => $files,
                 'descr' => $descr,
-                'note' => $note
+                'note' => $note,
+                'comments' => $this->comments,
             ]);
 
 
