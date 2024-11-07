@@ -131,7 +131,7 @@
                     </div>
                 </div>
                 {{-- Need Aproval  --}}
-                <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
+                {{-- <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -144,13 +144,13 @@
                                     <h4 class="card-text text-dark">Need approval</h4>
                                     <h4>{{App\Models\Attach::count()}}</h4>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- <p class="text-muted pt-3 mb-0 mt-2 border-top">
                                 <i class="fa fa-repeat mr-1" aria-hidden="true"></i> Just Updated
                             </p> --}}
-                        </div>
+                        {{-- </div>
                     </div>
-                </div>
+                </div> --}}
                 {{-- Rate --}}
                 <div class="col-xl-4 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
