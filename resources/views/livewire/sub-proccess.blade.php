@@ -1,5 +1,5 @@
 <div>
-    @if (Auth::user()->role_id == 2)
+    @if (Auth::user()->role_id == 2 || Auth::user()->role_id == 3 || Auth::user()->role_id == 4)
 
     @else
     <div class="row">
@@ -99,7 +99,7 @@
               </div>
             </div>
 
-            @if (Auth::user()->role_id == 2 )
+            @if (Auth::user()->role_id == 2 || Auth::user()->role_id == 3 || Auth::user()->role_id == 4)
 
             @else
             <div class="row">

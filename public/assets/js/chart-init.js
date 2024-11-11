@@ -168,35 +168,40 @@ var config2 = {
 /*************************
      doughnut
 *************************/
-
-        var config3 = {
-        type: 'polarArea',
-        data: {
-            datasets: [{
-                data: rates,
-                backgroundColor: backgroundColors,
-                label: 'SubProccess Rates'
-            }],
-            labels: labels
-
+var config3 = {
+    type: 'polarArea',
+    data: {
+        datasets: [{
+            data: rates,
+            backgroundColor: backgroundColors,
+            label: 'SubProcess Rates'
+        }],
+        labels: labels
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+            display: false, // Hide the legend
         },
-
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            legend: {
-                position: 'bottom',
+        title: {
+            display: false, // Hide the title
+        },
+        animation: {
+            animateScale: true,
+            animateRotate: true
+        },
+        scale: {
+            ticks: {
+                display: true // Hide scale ticks
             },
-            title: {
-                display: false,
-                text: 'Doughnut Chart'
-            },
-            animation: {
-                animateScale: true,
-                animateRotate: true
+            gridLines: {
+                display: true // Hide grid lines
             }
         }
-     };
+    }
+};
+
 
 
 /*************************
